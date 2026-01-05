@@ -1,0 +1,24 @@
+# IDE / editor
+.vscode/
+.vs/
+.idea/
+*.swp
+
+# Installed Modules
+node_modules
+
+# Git
+.git/
+.gitignore
+
+# Environment / secrets
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+docker-compose.yml
