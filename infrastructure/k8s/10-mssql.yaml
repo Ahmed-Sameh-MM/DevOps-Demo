@@ -19,6 +19,19 @@ spec:
           image: mcr.microsoft.com/mssql/server:2022-latest
           ports:
             - containerPort: 1433
+
+          startupProbe:
+            tcpSocket:
+              port: 1433
+            failureThreshold: 60
+            periodSeconds: 2
+
+          readinessProbe:
+            tcpSocket:
+              port: 1433
+            initialDelaySeconds: 5
+            periodSeconds: 5
+
           env:
             - name: ACCEPT_EULA
               value: "Y"
