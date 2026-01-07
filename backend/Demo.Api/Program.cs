@@ -1,12 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Demo.Api.Data;
 
+using Prometheus;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -72,5 +73,11 @@ using (var scope = app.Services.CreateScope())
 // app.UseAuthorization();
 
 // app.MapControllers();
+
+// Expose /metrics
+app.UseMetricServer("/metrics");
+
+// Collect HTTP metrics automatically
+app.UseHttpMetrics();
 
 app.Run("http://0.0.0.0:8080");

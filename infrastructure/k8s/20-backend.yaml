@@ -76,6 +76,8 @@ kind: Service
 metadata:
   name: backend
   namespace: demo
+  labels:
+    app: backend
 spec:
   selector:
     app: backend
