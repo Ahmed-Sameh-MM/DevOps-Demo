@@ -13,3 +13,8 @@ Thumbs.db
 # Env (never commit secrets)
 .env
 .env.*
+
+# Terraform
+.terraform/
+.terraform*
+terraform.tfstate*
